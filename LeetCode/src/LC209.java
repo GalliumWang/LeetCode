@@ -1,5 +1,3 @@
-import sun.jvmstat.monitor.Variability;
-
 public class LC209 {
 
 	public LC209() {
@@ -8,7 +6,8 @@ public class LC209 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int[] rawArray= {2,3,1,2,4,3};
+		new Solution().minSubArrayLen(7, rawArray);
 	}
 
 }
@@ -27,8 +26,9 @@ class Solution {
         		int endhold=i+1;
         		int tmpStartIdx=0;
         		int tmpEndIdx=0;
-				for(var j=i;i>=0;j--) {
-					var tmpSum=get_sum(nums, j, endhold);
+        		int tmpSum=0;
+				for(var j=i;j>=0;j--) {
+					tmpSum+=nums[j];
 					if(tmpSum>=target) {
 						tmpStartIdx=j;
 						tmpEndIdx=endhold;
@@ -49,10 +49,10 @@ class Solution {
         	else {	
         		//sum up from end
         		int endhold=i+1;
+        		int tmpSum=0;
         		
-        		
-				for(var j=i;i>=0;j--) {
-					var tmpSum=get_sum(nums, j, endhold);
+				for(var j=i;j>=0;j--) {
+					tmpSum+=nums[i];
 					if(tmpSum>=target) {
 						solvable=true;
 						startIdx=j;
@@ -69,6 +69,9 @@ class Solution {
         	return 0;
         }
         else {
+//        	System.out.println(startIdx);
+//        	System.out.println(endIdx);
+        	
 			return endIdx-startIdx;
 		}
         
