@@ -7,12 +7,12 @@ public class LC209 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] rawArray= {1,2,3,4,5};
-		new Solution().minSubArrayLen(15, rawArray);
+		new Solution209().minSubArrayLen(15, rawArray);
 	}
 
 }
 
-class Solution {
+class Solution209 {
     public int minSubArrayLen(int target, int[] nums) {
         Boolean solvable=false;
         int startIdx=0;
