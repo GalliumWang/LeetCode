@@ -6,8 +6,8 @@ public class LC209 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] rawArray= {2,3,1,2,4,3};
-		new Solution().minSubArrayLen(7, rawArray);
+		int[] rawArray= {1,2,3,4,5};
+		new Solution().minSubArrayLen(15, rawArray);
 	}
 
 }
@@ -44,19 +44,17 @@ class Solution {
 				}
 				
 				
-				
         	}
         	else {	
         		//sum up from end
         		int endhold=i+1;
         		int tmpSum=0;
-        		
-				for(var j=i;j>=0;j--) {
-					tmpSum+=nums[i];
+				for(var j=i;j>=0;j--) {					
+					tmpSum+=nums[j];
 					if(tmpSum>=target) {
 						solvable=true;
 						startIdx=j;
-						endIdx=endhold;
+						endIdx=endhold;						
 						break;
 					}
 				}
@@ -68,10 +66,7 @@ class Solution {
         if(!solvable) {
         	return 0;
         }
-        else {
-//        	System.out.println(startIdx);
-//        	System.out.println(endIdx);
-        	
+        else {        	
 			return endIdx-startIdx;
 		}
         
