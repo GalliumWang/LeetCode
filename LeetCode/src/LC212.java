@@ -17,6 +17,8 @@ public class LC212 {
 
 
 class Solution {
+	public final int[][] stepDire= {{1,0},{0,-1},{-1,0},{0,1}};
+	
     public List<String> findWords(char[][] board, String[] words) {
         var res=new ArrayList<String>();
         
@@ -48,7 +50,7 @@ class Solution {
 		
 		for (List<Integer> singleIdx : startIdx) {
 			boolean[][] onStack=new boolean[rowNum][colNum];
-			var searchRes=searchWord(board, onStack, singleIdx.get(0), singleIdx.get(1), rowNum, colNum);
+			var searchRes=searchWord(board, onStack, word, singleIdx.get(0), singleIdx.get(1), rowNum, colNum);
 			if(searchRes==true) {
 				return true;
 			}
@@ -57,7 +59,30 @@ class Solution {
 		return false;
 	}
     
-    private boolean searchWord(char[][] board,boolean[][] onStack,int row,int col,int rowNum,int colNum) {
+    private boolean searchWord(char[][] board,boolean[][] onStack,String word, int row,int col,int rowNum,int colNum) {
+		if(word.length()==1) {
+			return true;
+		}
+		
+		String wordToSearch=word.substring(1);
+		
+		onStack[row][col]=true;
+		
+		for (int[] step : stepDire) {
+			var newRow=row+step[0];
+			var newCol=col+step[1];
+			if(newRow >= 0 && newRow < rowNum && newCol >= 0 && newCol < colNum &&onStack[newRow][newCol]==false) {
+				if(board[newRow][newCol]==wordToSearch.charAt(0)) {
+					var newCheck=searchWord(board, onStack, wordToSearch, newRow, newCol, rowNum, colNum);
+					if(newCheck==true) {
+						return true;
+					}
+				}
+			}
+		}
+		
+		onStack[row][col]=false;
+		
 		
     	return false;
 	}
