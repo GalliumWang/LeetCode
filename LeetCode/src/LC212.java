@@ -16,7 +16,7 @@ public class LC212 {
 }
 
 
-class Solution {
+class Solution212 {
 	public final int[][] stepDire= {{1,0},{0,-1},{-1,0},{0,1}};
 	
     public List<String> findWords(char[][] board, String[] words) {
