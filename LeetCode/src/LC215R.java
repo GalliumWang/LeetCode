@@ -52,7 +52,7 @@ class Solution215 {
         int i = lo;
         for (int j = lo; j < hi; j++) {
             if (nums[j] <= pivot) {
-                swap(nums, i, j);
+                exch(nums, i, j);
                 i++;
             }
         }
