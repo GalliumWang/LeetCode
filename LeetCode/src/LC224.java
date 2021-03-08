@@ -1,7 +1,5 @@
 import java.util.Stack;
 
-import sun.net.www.content.text.plain;
-
 public class LC224 {
 
 	public LC224() {
@@ -22,7 +20,7 @@ class Solution {
     	Stack<String> stk = new Stack<>();
     	
         for(int i=0;i<s.length();i++) {
-        	System.out.println(stk);
+//        	System.out.println(stk);
 //        	System.out.println(i);
 //        	System.out.println("=====");
         	var newChar=s.substring(i,i+1);
@@ -35,11 +33,11 @@ class Solution {
 				continue;
 			}
         	else if (newChar.equals("+")||newChar.equals("-")) {
-        		System.out.println(String.valueOf(i)+" is opt");
+//        		System.out.println(String.valueOf(i)+" is opt");
 				stk.push(newChar);
 			}
         	else if (isNumChar(newChar)) {
-        		System.out.println(String.valueOf(i)+"is num");
+//        		System.out.println(String.valueOf(i)+"is num");
         		
 				while (i+1<s.length()&&isNumChar(s.substring(i+1, i+2))) {
 					newChar=newChar+s.substring(i+1, i+2);
@@ -60,10 +58,10 @@ class Solution {
 					}
 
 					String preNumStr=stk.pop();
-					System.out.println("=====");
-					System.out.println(preNumStr);
-					System.out.println(newChar);
-					System.out.println("=====");
+//					System.out.println("=====");
+//					System.out.println(preNumStr);
+//					System.out.println(newChar);
+//					System.out.println("=====");
 					int preNum=Integer.parseInt(preNumStr);
 					int sufNum=Integer.parseInt(newChar);
 					int resultNum=0;
@@ -91,14 +89,14 @@ class Solution {
 					stk.pop();
 					stk.push(resultNumStr);
 					preClr(stk);
-					System.out.println("======");
-					System.out.println("local res");
-					System.out.println(resultNumStr);
-					System.out.println("size");
-					System.out.println(stk.size());
-					System.out.println("stack");
-					System.out.println(stk);
-					System.out.println("======");
+//					System.out.println("======");
+//					System.out.println("local res");
+//					System.out.println(resultNumStr);
+//					System.out.println("size");
+//					System.out.println(stk.size());
+//					System.out.println("stack");
+//					System.out.println(stk);
+//					System.out.println("======");
 					
 				}
 				// else {
@@ -106,14 +104,14 @@ class Solution {
 				// }
 			}
         }
-        System.out.println("result");
-        System.out.println(stk.peek());
+//        System.out.println("result");
+//        System.out.println(stk.peek());
         
         
         if(stk.size()>1) {
-        	System.out.println("iter again");
-        	System.out.println(stk);
-        	System.out.println("=====");
+//        	System.out.println("iter again");
+//        	System.out.println(stk);
+//        	System.out.println("=====");
         	return calculate(joinStr(stk));
         }
         
