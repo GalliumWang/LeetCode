@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import sun.jvm.hotspot.ui.action.FindAction;
 
 public class LC230 {
 
