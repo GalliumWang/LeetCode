@@ -9,7 +9,8 @@ public class LC233 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		var solution=new Solution233();
+		System.out.println(solution.countDigitOne(100));
 	}
 
 }
@@ -37,6 +38,10 @@ class Solution233 {
 	
 	private int search_recurse(int number,int length,int biggest_mod,List<Integer> pre_array) {
 		
+		if(number==0) {
+			return 0;
+		}
+		
 		if(length==1) {
 			return number>0?1:0;
 		}
@@ -47,13 +52,13 @@ class Solution233 {
 		if(quotient==1) {
 			int tmpInt=pre_array.get(pre_array.size()-1);
 			pre_array.remove(pre_array.size()-1);
-			return tmpInt+remainder+1+search_recurse(remainder, length-1, biggest_mod/10, pre_array);
+			return tmpInt+remainder+1+countDigitOne(remainder);
 		}
 		else {
 			int sum=0;
 			sum+=quotient*pre_array.get(pre_array.size()-1)+biggest_mod;
 			pre_array.remove(pre_array.size()-1);
-			return sum+search_recurse(remainder, length-1, biggest_mod/10, pre_array);
+			return sum+countDigitOne(remainder);
 		}
 	}
 	
@@ -66,9 +71,13 @@ class Solution233 {
         List<Integer> pre_array=get_pre_array(n_length);
         int biggest_mod=(int)Math.pow(10, n_length-1);
         
+//        System.out.println(n);
+//        System.out.println(n_length);
+//        System.out.println(biggest_mod);
+//        System.out.println(pre_array);
         
     	
-    	return 0;
+    	return search_recurse(n, n_length, biggest_mod, pre_array);
     }
 }
 
