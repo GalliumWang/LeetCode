@@ -59,15 +59,30 @@ class Solution234 {
 			}
         }
         
+        System.out.println(ary1);
+        System.out.println(ary2);
+        
         if(ary2.size()%2==1) {
+        	ary2=ary2.subList(ary2.size()/2+1, ary2.size());
+        	ary1.remove(ary1.size()-1);
+        	Collections.reverse(ary1);
+        	
         	
         }
         else {
-			
+        	ary2=ary2.subList(ary2.size()/2, ary2.size());
+        	Collections.reverse(ary1);
 		}
+        System.out.println(ary1);
+        System.out.println(ary2);
+        
     	
-    	
-    	return false;
+        if(ary1.equals(ary2)) {
+        	return true;
+        }
+        else {
+			return false;
+		}
     }
 }
 
