@@ -34,6 +34,21 @@ class Solution238_space {
     }
 }
 
+/**
+ * 
+ * use below formula:
+ * d((a+b)c+ab)+abc
+ * use this in an array
+ *
+ */
+
+class Solution238_time {
+    public int[] productExceptSelf(int[] nums) {
+        
+    	
+    	return null;
+    }
+}
 
 
 
