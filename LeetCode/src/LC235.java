@@ -64,7 +64,6 @@ class Solution235 {
 		else {
 			return 1;
 		}
-		
 	}
 }
 
