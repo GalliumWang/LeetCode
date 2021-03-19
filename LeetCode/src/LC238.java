@@ -1,7 +1,7 @@
 
-public class LC238T {
+public class LC238 {
 
-	public LC238T() {
+	public LC238() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -23,8 +23,6 @@ public class LC238T {
  * [the array above is just for concept and can be avoid in code]
  * 
  * to multiply the res array of [1 1 . . . . 1]
- * 
- * !!! time complexity exceed
  *
  */
 
