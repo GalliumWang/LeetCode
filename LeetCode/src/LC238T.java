@@ -23,6 +23,8 @@ public class LC238T {
  * [the array above is just for concept and can be avoid in code]
  * 
  * to multiply the res array of [1 1 . . . . 1]
+ * 
+ * !!! time complexity exceed
  *
  */
 
@@ -44,11 +46,31 @@ class Solution238_space {
 
 class Solution238_time {
     public int[] productExceptSelf(int[] nums) {
-        
-    	
-    	return null;
+        int n = nums.length;
+        int[] res = new int[n];
+        res[0] = 1;
+        for (int i = 1; i < n; i++) {
+            res[i] = res[i - 1] * nums[i - 1];
+        }
+        int right = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            res[i] *= right;
+            right *= nums[i];
+        }
+        return res;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
