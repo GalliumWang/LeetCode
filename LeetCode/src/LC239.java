@@ -25,7 +25,7 @@ class Solution239 {
     	int length=nums.length;
     	int idxFrom=0;
     	int idxTo=length-k;
-    	List<Integer> res=new ArrayList<Integer>;
+    	List<Integer> res=new ArrayList<Integer>();
     	
     	for(int i=idxFrom;i<=idxTo;i++) {
     		res.add(get_max(Arrays.copyOfRange(nums, i, i + k)));
