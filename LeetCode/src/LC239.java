@@ -22,21 +22,23 @@ class Solution239 {
 	}
 	
     public int[] maxSlidingWindow(int[] nums, int k) {
-    	int length=nums.length;
-    	int idxFrom=0;
-    	int idxTo=length-k;
-    	List<Integer> res=new ArrayList<Integer>();
     	
-    	for(int i=idxFrom;i<=idxTo;i++) {
-    		res.add(get_max(Arrays.copyOfRange(nums, i, i + k)));
-    	}
     	
-        int[] ret = new int[res.size()];
-        for (int i=0; i < ret.length; i++)
-        {
-            ret[i] = res.get(i).intValue();
-        }
-        return ret;
+//    	int length=nums.length;
+//    	int idxFrom=0;
+//    	int idxTo=length-k;
+//    	List<Integer> res=new ArrayList<Integer>();
+//    	
+//    	for(int i=idxFrom;i<=idxTo;i++) {
+//    		res.add(get_max(Arrays.copyOfRange(nums, i, i + k)));
+//    	}
+//    	
+//        int[] ret = new int[res.size()];
+//        for (int i=0; i < ret.length; i++)
+//        {
+//            ret[i] = res.get(i).intValue();
+//        }
+//        return ret;
     }
 }
 
