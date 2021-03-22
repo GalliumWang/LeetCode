@@ -4,11 +4,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-import sun.security.action.GetBooleanAction;
+public class LC239 {
 
-public class LC239T {
-
-	public LC239T() {
+	public LC239() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -23,7 +21,7 @@ public class LC239T {
 /**
  * 
  * in every state of the sub array,find the index of peak,
- * when subarray slide over that peak,find the next peak
+ * when sub array slide over that peak,find the next peak
  *
  */
 
