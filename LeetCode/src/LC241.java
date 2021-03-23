@@ -10,7 +10,8 @@ public class LC241 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Solution241 solution=new Solution241();
+		solution.diffWaysToCompute("2*3-4*5");
 	}
 
 }
@@ -40,7 +41,7 @@ class Solution241 {
 		for(int i=1;i<str.length();i++) {
 			char currenChr=str.charAt(i);
 			String lastStr=res.get(res.size()-1);
-			if(Character.isDigit(lastStr.charAt(lastStr.length()))&&Character.isDigit(currenChr)) {
+			if(Character.isDigit(lastStr.charAt(lastStr.length()-1))&&Character.isDigit(currenChr)) {
 				res.set(res.size()-1,lastStr+Character.toString(currenChr));
 			}
 			else {
@@ -80,12 +81,12 @@ class Solution241 {
 		
 		/**
 		 * calculate reverse polan expression
+		 * need to remove duplication first
 		 */
-		
 		// TODO
+		System.out.println(reverse_polish_stk);
 		
-		
-		return null;
+		return 0;
 	}
 	
     public List<Integer> diffWaysToCompute(String expression) {
@@ -101,8 +102,10 @@ class Solution241 {
     	List<Integer> res=new ArrayList<>();
     	
     	for(var per:permutaions) {
-    		int tmpInt=calResult(exp_list, per);
-    		res.add(tmpInt);
+    		System.out.println(per);
+    		calResult(exp_list, per);
+//    		int tmpInt=calResult(exp_list, per);
+//    		res.add(tmpInt);
     	}
     	
     	return res;
