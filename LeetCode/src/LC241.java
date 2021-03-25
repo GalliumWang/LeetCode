@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
-import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
 
 public class LC241 {
 
