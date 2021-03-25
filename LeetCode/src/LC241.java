@@ -1,6 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
+
+import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
 
 public class LC241 {
 
@@ -53,7 +57,7 @@ class Solution241 {
 	}
 	
 	
-	private int calResult(List<String> exp_list,List<Integer> permutation) {
+	private Stack<String> calResult(List<String> exp_list,List<Integer> permutation) {
 		Stack<Integer> priority_stk=new Stack<>();
 		Stack<String> opt_stk=new Stack<>();
 		
@@ -77,36 +81,75 @@ class Solution241 {
 		
 		while(!opt_stk.empty()) {
 			reverse_polish_stk.push(opt_stk.pop());
+		}	
+		return reverse_polish_stk;
+	}
+	
+	private int reverse_polish_to_num(Stack<String> stk) {
+		Stack<String> tmpStk=new Stack<>();
+		while(!stk.empty()) {
+			tmpStk.push(stk.pop());
+		}
+		Stack<Integer> resStk=new Stack<>();
+		while(!tmpStk.empty()) {
+			String tmpStr=tmpStk.pop();
+			if(Character.isDigit(tmpStr.charAt(0))) {
+				resStk.push(Integer.parseInt(tmpStr));
+			}
+			else {
+				int num2=resStk.pop();
+				int num1=resStk.pop();
+				
+				switch (tmpStr) {
+				case "+":
+					resStk.push(num1+num2);
+					break;
+				case "-":
+					resStk.push(num1-num2);
+					break;
+				case "*":
+					resStk.push(num1*num2);
+					break;
+				default:
+					break;
+				}
+			}
 		}
 		
-		/**
-		 * calculate reverse polan expression
-		 * need to remove duplication first
-		 */
-		// TODO
-		System.out.println(reverse_polish_stk);
+		return resStk.pop();
 		
-		return 0;
 	}
 	
     public List<Integer> diffWaysToCompute(String expression) {
+    	List<Integer> res=new ArrayList<>();
     	List<String> exp_list=str_to_element_list(expression);
     	
-    	if(expression.length()%2==0) {
-    		System.out.println("wrong input string");
-    		return null;
+    	if(exp_list.size()==1) {
+    		int tmpNum=Integer.parseInt(exp_list.get(0));
+    		res.add(tmpNum);
+    		return res;
     	}
+    	
+    	// if(expression.length()%2==0) {
+    	// 	System.out.println("wrong input string");
+    	// 	return null;
+    	// }
         
     	int op_nums=(expression.length()-1)/2;
     	var permutaions=getPermutation(op_nums);
-    	List<Integer> res=new ArrayList<>();
+
+    	
+    	Set<String> dup_detect_set=new HashSet<>();
     	
     	for(var per:permutaions) {
-    		System.out.println(per);
-    		calResult(exp_list, per);
-//    		int tmpInt=calResult(exp_list, per);
-//    		res.add(tmpInt);
+    		Stack<String> tmpStk=calResult(exp_list, per);
+    		// System.out.println(tmpStk);
+    		if(!dup_detect_set.contains(tmpStk.toString())) {
+    			dup_detect_set.add(tmpStk.toString());
+    			res.add(reverse_polish_to_num(tmpStk));
+    		}
     	}
+    	
     	
     	return res;
     }
@@ -135,7 +178,6 @@ class Solution241 {
         }
         return returnMe;
     }
-    
 }
 
 
