@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class LC257 {
+public class LC257T {
 
-	public LC257() {
+	public LC257T() {
 		// TODO Auto-generated constructor stub
 	}
 
