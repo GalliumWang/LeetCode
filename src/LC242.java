@@ -2,8 +2,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sun.tools.javac.code.Attribute.Array;
-
 public class LC242 {
 
 	public LC242() {
