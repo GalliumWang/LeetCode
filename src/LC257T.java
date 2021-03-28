@@ -29,7 +29,12 @@ class Solution257 {
 	 }
 	
 	private String add_point(String oldStr,TreeNode node) {
-		return oldStr+"->"+node.val;
+		if(!oldStr.equals("")) {
+			return oldStr+"->"+node.val;
+		}
+		else {
+			return String.valueOf(node.val);
+		}
 	}
 	
     public List<String> binaryTreePaths(TreeNode root) {
@@ -47,7 +52,7 @@ class Solution257 {
     		recurse_search(node.right, add_point(curStr, node), strList);
 		}
     	if(node.left!=null){
-    		recurse_search(node.right, add_point(curStr, node), strList);
+    		recurse_search(node.left, add_point(curStr, node), strList);
 		}
     }
 }
