@@ -1,7 +1,5 @@
 import java.util.*;
 
-import org.graalvm.compiler.lir.StandardOp.ImplicitNullCheck;
-
 public class STO31 {
 
 	public STO31() {
