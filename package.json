@@ -1,0 +1,28 @@
+{
+  "name": "LeetCode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "commit": "node node_modules/cz-customizable/standalone.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GalliumWang/LeetCode.git"
+  },
+  "keywords": [],
+  "author": "Gallium Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GalliumWang/LeetCode/issues"
+  },
+  "homepage": "https://github.com/GalliumWang/LeetCode#readme",
+  "devDependencies": {
+    "cz-customizable": "^6.3.0"
+  },
+  "config": {
+    "cz-customizable": {
+      "config": ".config/config.js"
+    }
+  }
+}
